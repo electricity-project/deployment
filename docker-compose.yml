@@ -1,0 +1,71 @@
+version: "3"
+services:
+  user_db:
+    image: postgres
+    container_name: user_db_container_rm
+    restart: unless-stopped
+    #networks:
+    #  - userdb
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: userdb
+    ports:
+      - "5000:5432"
+    healthcheck:
+      test: "exit 0"
+
+  user_db_access:
+    depends_on:
+      user_db:
+        condition: service_healthy
+    build:
+      context: https://github.com/electricity-project/userdb-access.git
+    container_name: user_db_access_container_rm
+    #   networks:
+    #     - userdb
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://user_db:5432/userdb
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: password
+    ports:
+      - "8082:8080"
+
+  calculations_db:
+    image: postgres
+    container_name: calculations_db_container_rm
+    restart: unless-stopped
+    #networks:
+    #  - userdb
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: calculationsdb
+    ports:
+      - "5001:5432"
+    healthcheck:
+      test: "exit 0"
+
+  calculations_db_access:
+    depends_on:
+      calculations_db:
+        condition: service_healthy
+    build:
+      context: https://github.com/electricity-project/calculationsdb-access.git
+    container_name: calculations_db_access_container_rm
+    #   networks:
+    #     - userdb
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://calculations_db:5432/calculationsdb
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: password
+    ports:
+      - "8083:8080"
+#networks:
+#  userdb:
+  logic:
+    build:
+      context: https://github.com/electricity-project/logic.git
+    container_name: logic_container_rm
+    ports:
+      - "8084:8080"
