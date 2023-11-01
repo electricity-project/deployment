@@ -69,3 +69,11 @@ services:
     container_name: logic_container_rm
     ports:
       - "8084:8080"
+
+  prediction:
+    build:
+      context: https://github.com/electricity-project/prediction-module.git
+    container_name: prediction_container
+    ports:
+      - "8000:8000"
+
