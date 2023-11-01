@@ -77,3 +77,25 @@ services:
     ports:
       - "8000:8000"
 
+  zookeeper:
+    image: zookeeper:3.8.2
+    container_name: zookeeper
+    restart: no
+    volumes:
+      - /data/zookeeper
+    ports:
+      - "2181:2181"
+  kafka:
+    image: wurstmeister/kafka
+    container_name: kafka
+    restart: no
+    ports:
+      - "9092:9092"
+    volumes:
+      - /data/kafka
+    environment:
+      KAFKA_ADVERTISED_HOST_NAME: 127.0.0.1
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+    depends_on:
+      - zookeeper
+
