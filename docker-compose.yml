@@ -94,6 +94,7 @@ services:
     volumes:
       - /data/kafka
     environment:
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://:9092
       KAFKA_ADVERTISED_HOST_NAME: 127.0.0.1
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
     depends_on:
