@@ -1,0 +1,127 @@
+name: szoze-system
+services:
+  central-module:
+    image: central-module:latest
+    environment:
+      KAFKA_BROKER_ADDRESS: kafka:9092
+      CALCULATION_DATABASE_APPLICATION_ADDRESS: http://calculations-db-access:8090
+    depends_on:
+      kafka:
+        condition: service_started
+      calculations-db-access:
+        condition: service_started
+    ports:
+      - "8081:8080"
+
+  calculations-db:
+    image: postgres:latest
+    healthcheck:
+      test: exit 0
+    environment:
+      POSTGRES_USER: calculations-user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: calculations-db
+    ports:
+      - "6432:5432"
+
+  calculations-db-access:
+    image: calculations-db-access:latest
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://calculations-db:5432/calculations-db
+      SPRING_DATASOURCE_USERNAME: calculations-user
+      SPRING_DATASOURCE_PASSWORD: password
+    depends_on:
+      calculations-db:
+        condition: service_healthy
+    ports:
+      - "8090:8090"
+
+  log_db:
+    image: postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: logdb
+    ports:
+      - "5002:5432"
+    healthcheck:
+      test: "exit 0"
+
+  mediative-module:
+    image: mediative-module:latest
+    environment:
+      MQTT_CLIENT_USERNAME: rabbitmq-user
+      MQTT_CLIENT_PASSWORD: password
+      MQTT_BROKER_URL: tcp://rabbitmq:1883
+      KAFKA_BROKER_ADDRESS: kafka:9092
+      SPRING_DATASOURCE_URL: jdbc:postgresql://log_db:5432/logdb
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: password
+    ports:
+      - "8082:8082"
+    depends_on:
+      log_db:
+        condition: service_healthy
+      kafka:
+        condition: service_started
+
+  simulation-db:
+    image: postgres:latest
+    healthcheck:
+      test: exit 0
+    environment:
+      POSTGRES_USER: simulation-user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: simulation-db
+    ports:
+      - "7432:5432"
+
+  simulation-module:
+    image: simulation-module:latest
+    environment:
+      WEATHER_API_KEY: 8df51dd68cc94f99bb9155153232610
+      SPRING_DATASOURCE_URL: jdbc:postgresql://simulation-db:5432/simulation-db
+      SPRING_DATASOURCE_USERNAME: simulation-user
+      SPRING_DATASOURCE_PASSWORD: password
+      MQTT_CLIENT_USERNAME: rabbitmq-user
+      MQTT_CLIENT_PASSWORD: password
+      MQTT_BROKER_URL: tcp://rabbitmq:1883
+    depends_on:
+      simulation-db:
+        condition: service_healthy
+    ports:
+      - "8080:8080"
+
+  zookeeper:
+    image: zookeeper:3.8.2
+#    restart: no
+    ports:
+      - "2181:2181"
+  kafka:
+    image: wurstmeister/kafka
+#    restart: no
+    ports:
+      - "9092:9092"
+    environment:
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://:9092
+      KAFKA_ADVERTISED_HOST_NAME: 127.0.0.1
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+    depends_on:
+      - zookeeper
+
+  rabbitmq:
+    build:
+      dockerfile_inline: |
+        FROM rabbitmq:3-management
+        RUN rabbitmq-plugins enable --offline rabbitmq_mqtt
+    environment:
+      RABBITMQ_DEFAULT_USER: rabbitmq-user
+      RABBITMQ_DEFAULT_PASS: password
+    healthcheck:
+      test: rabbitmq-diagnostics -q ping
+      interval: 30s
+      timeout: 30s
+      retries: 3
+    ports:
+      - 1883:1883
