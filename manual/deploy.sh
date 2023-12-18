@@ -15,6 +15,8 @@ echo "Start uploading mediative-module"
 docker save mediative-module:latest | ssh -C "$ssh_configuration" docker load
 echo "Start uploading simulation-module"
 docker save simulation-module:latest | ssh -C "$ssh_configuration" docker load
+echo "Start uploading web"
+docker save web:dev | ssh -C "$ssh_configuration" docker load
 echo "Uploaded all images"
 
 ssh "$ssh_configuration" 'mkdir -p deploy/'
