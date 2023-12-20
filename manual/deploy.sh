@@ -16,11 +16,12 @@ docker save mediative-module:latest | ssh -C "$ssh_configuration" docker load
 echo "Start uploading simulation-module"
 docker save simulation-module:latest | ssh -C "$ssh_configuration" docker load
 echo "Start uploading web"
-docker save web:dev | ssh -C "$ssh_configuration" docker load
+docker save web:latest | ssh -C "$ssh_configuration" docker load
 echo "Start uploading logic"
 docker save logic:latest | ssh -C "$ssh_configuration" docker load
 echo "Uploaded all images"
 
 ssh "$ssh_configuration" 'mkdir -p deploy/'
 scp docker-compose-manual.yaml "$ssh_configuration":deploy/
+scp .env "$ssh_configuration":deploy/
 ssh "$ssh_configuration" 'docker compose -f deploy/docker-compose-manual.yaml up'

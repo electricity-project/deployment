@@ -105,12 +105,11 @@ services:
       - "8084:8080"
 
   web:
-    image: web:dev
+    image: web:latest
     environment:
-      - REACT_APP_API_BASE_URL = http://localhost:3001
+      REACT_APP_API_BASE_URL: http://localhost:8084
     ports:
       - "80:80"
-      - "3001:3001"
 
   zookeeper:
     image: zookeeper:3.8.2
