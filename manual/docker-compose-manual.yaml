@@ -1,18 +1,5 @@
 name: szoze-system
 services:
-  central-module:
-    image: central-module:latest
-    environment:
-      KAFKA_BROKER_ADDRESS: kafka:9092
-      CALCULATION_DATABASE_APPLICATION_ADDRESS: http://calculations-db-access:8090
-    depends_on:
-      kafka:
-        condition: service_started
-      calculations-db-access:
-        condition: service_started
-    ports:
-      - "8081:8080"
-
   calculations-db:
     image: postgres:latest
     healthcheck:
@@ -35,6 +22,20 @@ services:
         condition: service_healthy
     ports:
       - "8090:8090"
+
+  central-module:
+    image: central-module:latest
+    environment:
+      KAFKA_BROKER_ADDRESS: kafka:9092
+      CALCULATION_DATABASE_APPLICATION_ADDRESS: http://calculations-db-access:8090
+      MEDIATIVE_MODULE_APPLICATION_ADDRESS: http://mediative-module:8090
+    depends_on:
+      kafka:
+        condition: service_started
+      calculations-db-access:
+        condition: service_started
+    ports:
+      - "8081:8080"
 
   log_db:
     image: postgres
@@ -87,11 +88,29 @@ services:
       MQTT_CLIENT_USERNAME: rabbitmq-user
       MQTT_CLIENT_PASSWORD: password
       MQTT_BROKER_URL: tcp://rabbitmq:1883
+      TZ: "Europe/Warsaw"
     depends_on:
       simulation-db:
         condition: service_healthy
     ports:
       - "8080:8080"
+
+  logic:
+    image: logic:latest
+    environment:
+      API_BASE_URL: http://central-module:8080
+    depends_on:
+      central-module:
+        condition: service_started
+    ports:
+      - "8084:8080"
+
+  web:
+    image: web:latest
+    environment:
+      REACT_APP_API_BASE_URL: http://localhost:8084
+    ports:
+      - "80:80"
 
   zookeeper:
     image: zookeeper:3.8.2
