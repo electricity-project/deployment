@@ -77,6 +77,14 @@
       "containerId" : "fbc78c10-296e-4b0f-bf24-af9dd0669574",
       "attributes" : { }
     }, {
+      "id" : "a9c77614-54d9-405c-87ea-51653fca61fd",
+      "name" : "USER_SET_PASSWORD",
+      "description" : "",
+      "composite" : false,
+      "clientRole" : false,
+      "containerId" : "fbc78c10-296e-4b0f-bf24-af9dd0669574",
+      "attributes" : { }
+    }, {
       "id" : "1b019cd0-9c95-4f98-b4d7-aac20d983bc1",
       "name" : "default-roles-szoze-realm",
       "description" : "${role_default-roles}",
@@ -367,7 +375,7 @@
   "otpPolicyLookAheadWindow" : 1,
   "otpPolicyPeriod" : 30,
   "otpPolicyCodeReusable" : false,
-  "otpSupportedApplications" : [ "totpAppMicrosoftAuthenticatorName", "totpAppFreeOTPName", "totpAppGoogleName" ],
+  "otpSupportedApplications" : [ "totpAppMicrosoftAuthenticatorName", "totpAppGoogleName", "totpAppFreeOTPName" ],
   "webAuthnPolicyRpEntityName" : "keycloak",
   "webAuthnPolicySignatureAlgorithms" : [ "ES256" ],
   "webAuthnPolicyRpId" : "",
@@ -409,26 +417,6 @@
     "disableableCredentialTypes" : [ ],
     "requiredActions" : [ ],
     "realmRoles" : [ "ADMIN", "default-roles-szoze-realm" ],
-    "notBefore" : 0,
-    "groups" : [ ]
-  }, {
-    "id" : "3059ce0e-fa33-44b3-a99b-6185070570c5",
-    "createdTimestamp" : 1702821100243,
-    "username" : "user",
-    "enabled" : true,
-    "totp" : false,
-    "emailVerified" : false,
-    "email" : "user1@user.com",
-    "credentials" : [ {
-      "id" : "88c414c7-8d44-4576-a5fe-335429582288",
-      "type" : "password",
-      "createdDate" : 1702821100268,
-      "secretData" : "{\"value\":\"YvMIARhM0Smdmi5y4Hi2dNyjGGmlz73BVoiV+2vxmgw=\",\"salt\":\"9r8DyRyXKT/MOZAWjOP8dA==\",\"additionalParameters\":{}}",
-      "credentialData" : "{\"hashIterations\":27500,\"algorithm\":\"pbkdf2-sha256\",\"additionalParameters\":{}}"
-    } ],
-    "disableableCredentialTypes" : [ ],
-    "requiredActions" : [ "UPDATE_PASSWORD" ],
-    "realmRoles" : [ "USER", "default-roles-szoze-realm" ],
     "notBefore" : 0,
     "groups" : [ ]
   } ],
@@ -1214,7 +1202,7 @@
       "subType" : "anonymous",
       "subComponents" : { },
       "config" : {
-        "allowed-protocol-mapper-types" : [ "oidc-usermodel-attribute-mapper", "oidc-full-name-mapper", "oidc-sha256-pairwise-sub-mapper", "saml-user-property-mapper", "oidc-address-mapper", "oidc-usermodel-property-mapper", "saml-role-list-mapper", "saml-user-attribute-mapper" ]
+        "allowed-protocol-mapper-types" : [ "oidc-usermodel-attribute-mapper", "oidc-usermodel-property-mapper", "saml-user-property-mapper", "oidc-full-name-mapper", "oidc-sha256-pairwise-sub-mapper", "saml-role-list-mapper", "saml-user-attribute-mapper", "oidc-address-mapper" ]
       }
     }, {
       "id" : "c075c88d-a90d-4930-b338-00fad4e2b0d1",
@@ -1232,7 +1220,7 @@
       "subType" : "authenticated",
       "subComponents" : { },
       "config" : {
-        "allowed-protocol-mapper-types" : [ "saml-user-attribute-mapper", "oidc-usermodel-property-mapper", "oidc-address-mapper", "oidc-sha256-pairwise-sub-mapper", "oidc-full-name-mapper", "oidc-usermodel-attribute-mapper", "saml-role-list-mapper", "saml-user-property-mapper" ]
+        "allowed-protocol-mapper-types" : [ "oidc-sha256-pairwise-sub-mapper", "saml-user-property-mapper", "oidc-usermodel-attribute-mapper", "oidc-address-mapper", "saml-user-attribute-mapper", "saml-role-list-mapper", "oidc-usermodel-property-mapper", "oidc-full-name-mapper" ]
       }
     } ],
     "org.keycloak.keys.KeyProvider" : [ {
