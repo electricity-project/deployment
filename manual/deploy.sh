@@ -24,4 +24,8 @@ echo "Uploaded all images"
 ssh "$ssh_configuration" 'mkdir -p deploy/'
 scp docker-compose-manual.yaml "$ssh_configuration":deploy/
 scp .env "$ssh_configuration":deploy/
+
+ssh "$ssh_configuration" 'mkdir -p deploy/import/'
+scp ../import/szoze-realm.json "$ssh_configuration":deploy/import/
+
 ssh "$ssh_configuration" 'docker compose -f deploy/docker-compose-manual.yaml up'
