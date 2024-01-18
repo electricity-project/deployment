@@ -28,7 +28,7 @@ services:
     environment:
       KAFKA_BROKER_ADDRESS: kafka:9092
       CALCULATION_DATABASE_APPLICATION_ADDRESS: http://calculations-db-access:8090
-      MEDIATIVE_MODULE_APPLICATION_ADDRESS: http://mediative-module:8090
+      MEDIATIVE_MODULE_APPLICATION_ADDRESS: http://mediative-module:8082
     depends_on:
       kafka:
         condition: service_started
