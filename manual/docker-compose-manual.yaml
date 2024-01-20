@@ -29,6 +29,7 @@ services:
       KAFKA_BROKER_ADDRESS: kafka:9092
       CALCULATION_DATABASE_APPLICATION_ADDRESS: http://calculations-db-access:8090
       MEDIATIVE_MODULE_APPLICATION_ADDRESS: http://mediative-module:8082
+      REAL_TIME_CALCULATIONS_ADDRESS: http://real-time-calculations:8079
     depends_on:
       kafka:
         condition: service_started
@@ -36,6 +37,21 @@ services:
         condition: service_started
     ports:
       - "8081:8080"
+
+  real-time-calculations:
+    image: real-time-calculations:latest
+    environment:
+      CALCULATIONS_DB_ACCESS_URL: http://calculations-db-access:8090
+      CENTRAL_MODULE_URL: http://central-module:8080
+      MEDIATIVE_MAPPING_URL: /mediative-module
+      SERVER_PORT: 8079
+    depends_on:
+      calculations-db-access:
+        condition: service_healthy
+      central-module:
+        condition: service_healthy
+    ports:
+      - "8079:8079"
 
   log_db:
     image: postgres

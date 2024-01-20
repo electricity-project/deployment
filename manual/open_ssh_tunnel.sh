@@ -12,6 +12,7 @@ ssh -L 8081:localhost:8081  \
     -L 8090:localhost:8090  \
     -L 5002:localhost:5002  \
     -L 8082:localhost:8082  \
+    -L 8079:localhost:8079  \
     -L 7432:localhost:7432  \
     -L 8080:localhost:8080  \
     -L 80:localhost:80 \
