@@ -30,10 +30,15 @@ services:
       CALCULATION_DATABASE_APPLICATION_ADDRESS: http://calculations-db-access:8090
       MEDIATIVE_MODULE_APPLICATION_ADDRESS: http://mediative-module:8082
       REAL_TIME_CALCULATIONS_ADDRESS: http://real-time-calculations:8079
+      PREDICTION_MODULE_ADDRESS: http://prediction-module:8086
     depends_on:
       kafka:
         condition: service_started
       calculations-db-access:
+        condition: service_started
+      real-time-calculations:
+        condition: service_started
+      prediction-module:
         condition: service_started
     ports:
       - "8081:8080"
@@ -47,11 +52,26 @@ services:
       SERVER_PORT: 8079
     depends_on:
       calculations-db-access:
-        condition: service_healthy
-      central-module:
-        condition: service_healthy
+        condition: service_started
+      mediative-module:
+        condition: service_started
     ports:
       - "8079:8079"
+
+  prediction-module:
+    image: prediction-module:latest
+    environment:
+      CENTRAL_MODULE_URL: http://central-module:8080
+      CALCULATIONS_DB_ACCESS_MAPPING_URL: /calculations-db-access
+      REAL_TIME_CALCULATIONS_MAPPING_URL: /real-time-calculations
+      SERVER_PORT: 8086
+    depends_on:
+      calculations-db-access:
+        condition: service_started
+      real-time-calculations:
+        condition: service_started
+    ports:
+      - "8086:8086"
 
   log_db:
     image: postgres
@@ -82,6 +102,8 @@ services:
         condition: service_healthy
       kafka:
         condition: service_started
+      rabbitmq:
+        condition: service_healthy
 
   simulation-db:
     image: postgres:latest
@@ -159,6 +181,9 @@ services:
     image: web:latest
     environment:
       REACT_APP_API_BASE_URL: http://localhost:8084
+    depends_on:
+      logic:
+        condition: service_started
     ports:
       - "80:80"
 
@@ -167,6 +192,7 @@ services:
 #    restart: no
     ports:
       - "2181:2181"
+
   kafka:
     image: wurstmeister/kafka
 #    restart: no
@@ -193,4 +219,4 @@ services:
       timeout: 30s
       retries: 3
     ports:
-      - 1883:1883
+      - "1883:1883"

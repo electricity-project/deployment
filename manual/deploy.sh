@@ -21,6 +21,8 @@ echo "Start uploading logic"
 docker save logic:latest | ssh -C "$ssh_configuration" docker load
 echo "Start uploading real-time-calculations"
 docker save real-time-calculations:latest | ssh -C "$ssh_configuration" docker load
+echo "Start uploading prediction-module"
+docker save prediction-module:latest | ssh -C "$ssh_configuration" docker load
 echo "Uploaded all images"
 
 ssh "$ssh_configuration" 'mkdir -p deploy/'
