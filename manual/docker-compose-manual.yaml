@@ -47,9 +47,9 @@ services:
       SERVER_PORT: 8079
     depends_on:
       calculations-db-access:
-        condition: service_healthy
+        condition: service_started
       central-module:
-        condition: service_healthy
+        condition: service_started
     ports:
       - "8079:8079"
 
@@ -82,6 +82,8 @@ services:
         condition: service_healthy
       kafka:
         condition: service_started
+      rabbitmq:
+        condition: service_healthy
 
   simulation-db:
     image: postgres:latest
@@ -107,6 +109,8 @@ services:
       TZ: "Europe/Warsaw"
     depends_on:
       simulation-db:
+        condition: service_healthy
+      rabbitmq:
         condition: service_healthy
     ports:
       - "8080:8080"

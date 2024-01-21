@@ -30,4 +30,4 @@ scp .env "$ssh_configuration":deploy/
 ssh "$ssh_configuration" 'mkdir -p deploy/import/'
 scp ../import/szoze-realm.json "$ssh_configuration":deploy/import/
 
-ssh "$ssh_configuration" 'docker compose -f deploy/docker-compose-manual.yaml up'
+ssh "$ssh_configuration" 'docker compose -f deploy/docker-compose-manual.yaml up -d'
