@@ -33,3 +33,6 @@ ssh "$ssh_configuration" 'mkdir -p deploy/import/'
 scp ../import/szoze-realm.json "$ssh_configuration":deploy/import/
 
 ssh "$ssh_configuration" 'docker compose -f deploy/docker-compose-manual.yaml up -d'
+#ssh "$ssh_configuration" 'docker compose -f deploy/docker-compose-manual.yaml up central-module calculations-db-access mediative-module simulation-module web logic  real-time-calculations prediction-module -d'
+
+ssh "ssh_configuration" 'docker network connect bridge szoze-system-calculations-db-access-1'
