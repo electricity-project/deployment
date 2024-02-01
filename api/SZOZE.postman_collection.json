@@ -1,0 +1,1723 @@
+{
+	"info": {
+		"_postman_id": "e6cb20cb-f854-4938-95aa-6dcce86a92cb",
+		"name": "SZOZE",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30799747",
+		"_collection_link": "https://gold-shadow-635997.postman.co/workspace/electricity-project~d4caff3d-1ec6-4ee1-bc26-7e35619f6c92/collection/30799747-e6cb20cb-f854-4938-95aa-6dcce86a92cb?action=share&source=collection_link&creator=30799747"
+	},
+	"item": [
+		{
+			"name": "calculationsdb-access",
+			"item": [
+				{
+					"name": "aggregated-power-production",
+					"item": [
+						{
+							"name": "Get aggregated power production",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{ip-caculationsdb-access}}/aggregated-power-production?periodType=MINUTE&duration=60",
+									"host": [
+										"{{ip-caculationsdb-access}}"
+									],
+									"path": [
+										"aggregated-power-production"
+									],
+									"query": [
+										{
+											"key": "periodType",
+											"value": "MINUTE",
+											"description": "MINUTE/HOUR/DAY"
+										},
+										{
+											"key": "duration",
+											"value": "60",
+											"description": "Liczba ostatnich minut/godzin/dni"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "power-production",
+					"item": [
+						{
+							"name": "Add power production list",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "[\r\n    {\r\n        \"ipv6Address\": \"0000:0000:0000:0000:0000:0000:0000:0001\",\r\n        \"state\": \"WORKING\",\r\n        \"timestamp\": \"1970-01-01T01:12:11\",\r\n        \"power\": 15.32\r\n    },\r\n    {\r\n        \"ipv6Address\": \"0000:0000:0000:0000:0000:0000:0000:0002\",\r\n        \"state\": \"WORKING\",\r\n        \"timestamp\": \"1970-01-01T02:12:12\",\r\n        \"power\": 15.32\r\n    },\r\n    {\r\n        \"ipv6Address\": \"0000:0000:0000:0000:0000:0000:0000:0003\",\r\n        \"state\": \"WORKING\",\r\n        \"timestamp\": \"1970-01-01T03:10:11\",\r\n        \"power\": 15.32\r\n    },\r\n    {\r\n        \"ipv6Address\": \"0000:0000:0000:0000:0000:0000:0000:0004\",\r\n        \"state\": \"WORKING\",\r\n        \"timestamp\": \"1970-01-01T04:10:12\",\r\n        \"power\": 15.32\r\n    },\r\n    {\r\n        \"ipv6Address\": \"0000:0000:0000:0000:0000:0000:0000:0005\",\r\n        \"state\": \"WORKING\",\r\n        \"timestamp\": \"1970-01-01T04:10:12\",\r\n        \"power\": 15.32\r\n    },\r\n    {\r\n        \"ipv6Address\": \"0000:0000:0000:0000:0000:0000:0000:0005\",\r\n        \"state\": \"WORKING\",\r\n        \"timestamp\": \"1970-01-01T02:10:11\",\r\n        \"power\": 15.32\r\n    },\r\n    {\r\n        \"ipv6Address\": \"0000:0000:0000:0000:0000:0000:0000:0006\",\r\n        \"state\": \"WORKING\",\r\n        \"timestamp\": \"1970-01-01T02:13:12\",\r\n        \"power\": 15.32\r\n    },\r\n    {\r\n        \"ipv6Address\": \"0000:0000:0000:0000:0000:0000:0000:0007\",\r\n        \"state\": \"WORKING\",\r\n        \"timestamp\": \"1970-01-01T02:13:11\",\r\n        \"power\": 15.32\r\n    },\r\n    {\r\n        \"ipv6Address\": \"0000:0000:0000:0000:0000:0000:0000:0008\",\r\n        \"state\": \"WORKING\",\r\n        \"timestamp\": \"1970-01-01T00:12:12\",\r\n        \"power\": 15.32\r\n    },\r\n    {\r\n        \"ipv6Address\": \"0000:0000:0000:0000:0000:0000:0000:0009\",\r\n        \"state\": \"WORKING\",\r\n        \"timestamp\": \"1970-01-11T00:15:11\",\r\n        \"power\": 15.32\r\n    },\r\n    {\r\n        \"ipv6Address\": \"0000:0000:0000:0000:0000:0000:0000:0010\",\r\n        \"state\": \"WORKING\",\r\n        \"timestamp\": \"1970-01-05T00:15:12\",\r\n        \"power\": 15.32\r\n    },\r\n    {\r\n        \"ipv6Address\": \"0000:0000:0000:0000:0000:0000:0000:0011\",\r\n        \"state\": \"WORKING\",\r\n        \"timestamp\": \"1970-01-04T00:12:11\",\r\n        \"power\": 15.32\r\n    },\r\n    {\r\n        \"ipv6Address\": \"0000:0000:0000:0000:0000:0000:0000:0012\",\r\n        \"state\": \"WORKING\",\r\n        \"timestamp\": \"1970-01-03T00:01:12\",\r\n        \"power\": 15.32\r\n    },\r\n    {\r\n        \"ipv6Address\": \"0000:0000:0000:0000:0000:0000:0000:0013\",\r\n        \"state\": \"WORKING\",\r\n        \"timestamp\": \"1970-01-02T00:01:11\",\r\n        \"power\": 15.32\r\n    },\r\n    {\r\n        \"ipv6Address\": \"0000:0000:0000:0000:0000:0000:0000:0014\",\r\n        \"state\": \"WORKING\",\r\n        \"timestamp\": \"1970-01-02T00:01:12\",\r\n        \"power\": 15.32\r\n    },\r\n    {\r\n        \"ipv6Address\": \"0000:0000:0000:0000:0000:0000:0000:0015\",\r\n        \"state\": \"WORKING\",\r\n        \"timestamp\": \"5970-01-01T00:02:12\",\r\n        \"power\": 15.32\r\n    },\r\n    {\r\n        \"ipv6Address\": \"0000:0000:0000:0000:0000:0000:0000:0016\",\r\n        \"state\": \"WORKING\",\r\n        \"timestamp\": \"4970-01-01T00:02:12\",\r\n        \"power\": 15.32\r\n    }\r\n]",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{ip-caculationsdb-access}}/power-production/list",
+									"host": [
+										"{{ip-caculationsdb-access}}"
+									],
+									"path": [
+										"power-production",
+										"list"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add power production",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\": -1,\r\n    \"ipv6Address\": \"0000:0000:0000:0000:0000:0000:0000:0001\",\r\n    \"state\": \"WORKING\",\r\n    \"timestamp\": \"1970-01-01T00:00:00\",\r\n    \"power\": 15\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{ip-caculationsdb-access}}/power-production",
+									"host": [
+										"{{ip-caculationsdb-access}}"
+									],
+									"path": [
+										"power-production"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get power production for ipv6",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{ip-caculationsdb-access}}/power-production?ipv6=0000:0000:0000:0000:0000:0000:0000:03e8&periodType=MINUTE&duration=60",
+									"host": [
+										"{{ip-caculationsdb-access}}"
+									],
+									"path": [
+										"power-production"
+									],
+									"query": [
+										{
+											"key": "ipv6",
+											"value": "0000:0000:0000:0000:0000:0000:0000:03e8"
+										},
+										{
+											"key": "periodType",
+											"value": "MINUTE"
+										},
+										{
+											"key": "duration",
+											"value": "60"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get power production for specified time",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{ip-caculationsdb-access}}/power-production/date?time=1970-01-01T01:12",
+									"host": [
+										"{{ip-caculationsdb-access}}"
+									],
+									"path": [
+										"power-production",
+										"date"
+									],
+									"query": [
+										{
+											"key": "time",
+											"value": "1970-01-01T01:12"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "power-station",
+					"item": [
+						{
+							"name": "Connect power stations list",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "[\r\n    {\r\n        \"ipv6\": \"0000:0000:0000:0000:0000:0000:0000:0001\",\r\n        \"state\": \"WORKING\",\r\n        \"creationTime\": \"1970-01-01T00:12:00Z\",\r\n        \"bladeLength\": 26,\r\n        \"maxPower\": 16.32\r\n    },\r\n    {\r\n        \"ipv6\": \"0000:0000:0000:0000:0000:0000:0000:0002\",\r\n        \"state\": \"WORKING\",\r\n        \"creationTime\": \"2000-01-01T00:10:00Z\",\r\n        \"bladeLength\": 27,\r\n        \"maxPower\": 15.32\r\n    },\r\n     {\r\n        \"ipv6\": \"0000:0000:0000:0000:0000:0000:0000:0011\",\r\n        \"state\": \"WORKING\",\r\n        \"creationTime\": \"2170-01-01T00:10:00Z\",\r\n        \"bladeLength\": 28,\r\n        \"maxPower\": 19.32\r\n    },\r\n    {\r\n        \"ipv6\": \"0000:0000:0000:0000:0000:0000:0000:0012\",\r\n        \"state\": \"WORKING\",\r\n        \"creationTime\": \"2020-01-01T00:12:00Z\",\r\n        \"bladeLength\": 25,\r\n        \"maxPower\": 15.32\r\n    }\r\n]",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{ip-caculationsdb-access}}/power-station/list",
+									"host": [
+										"{{ip-caculationsdb-access}}"
+									],
+									"path": [
+										"power-station",
+										"list"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Connect power station",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"ipv6\": \"0000:0000:0000:0000:0000:0000:0000:0001\",\r\n    \"state\": \"WORKING\",\r\n    \"creationTime\": \"2000-01-01T00:00:00Z\",\r\n    \"bladeLength\": 25,\r\n    \"maxPower\": 15.32\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{ip-caculationsdb-access}}/power-station",
+									"host": [
+										"{{ip-caculationsdb-access}}"
+									],
+									"path": [
+										"power-station"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get power stations",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"ipv6Patterns\" : [],\r\n    \"statePatterns\" : [],\r\n    \"typePatterns\" : []\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{ip-caculationsdb-access}}/power-station/all?size=10&page=0&sort=id,desc",
+									"host": [
+										"{{ip-caculationsdb-access}}"
+									],
+									"path": [
+										"power-station",
+										"all"
+									],
+									"query": [
+										{
+											"key": "size",
+											"value": "10"
+										},
+										{
+											"key": "page",
+											"value": "0"
+										},
+										{
+											"key": "sort",
+											"value": "id,desc"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get power stations filter list",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"ipv6Patterns\" : [],\r\n    \r\n    \"statePatterns\" : [],\r\n    \"typePatterns\" : []\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{ip-caculationsdb-access}}/power-station/all_filter_list",
+									"host": [
+										"{{ip-caculationsdb-access}}"
+									],
+									"path": [
+										"power-station",
+										"all_filter_list"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get power station by ipv6",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"ipv6Patterns\" : [],\r\n    \"statePatterns\" : [],\r\n    \"typePatterns\" : []\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{ip-caculationsdb-access}}/power-station?ipv6=0000:0000:0000:0000:0000:0000:0000:0001",
+									"host": [
+										"{{ip-caculationsdb-access}}"
+									],
+									"path": [
+										"power-station"
+									],
+									"query": [
+										{
+											"key": "ipv6",
+											"value": "0000:0000:0000:0000:0000:0000:0000:0001"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update state of power station by ipv6",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{ip-caculationsdb-access}}/power-station?ipv6=0000:0000:0000:0000:0000:0000:0000:0001&state=STOPPED",
+									"host": [
+										"{{ip-caculationsdb-access}}"
+									],
+									"path": [
+										"power-station"
+									],
+									"query": [
+										{
+											"key": "ipv6",
+											"value": "0000:0000:0000:0000:0000:0000:0000:0001"
+										},
+										{
+											"key": "state",
+											"value": "STOPPED"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get power station by id",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"ipv6Patterns\" : [],\r\n    \"statePatterns\" : [],\r\n    \"typePatterns\" : []\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{ip-caculationsdb-access}}/power-station/1",
+									"host": [
+										"{{ip-caculationsdb-access}}"
+									],
+									"path": [
+										"power-station",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Count power stations by state",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{ip-caculationsdb-access}}/power-station/count",
+									"host": [
+										"{{ip-caculationsdb-access}}"
+									],
+									"path": [
+										"power-station",
+										"count"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Disconnect power station",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{ip-caculationsdb-access}}/power-station/disconnect?ipv6Address=0000:0000:0000:0000:0000:0000:0000:0001",
+									"host": [
+										"{{ip-caculationsdb-access}}"
+									],
+									"path": [
+										"power-station",
+										"disconnect"
+									],
+									"query": [
+										{
+											"key": "ipv6Address",
+											"value": "0000:0000:0000:0000:0000:0000:0000:0001"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Disconnect power stations list",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "[\r\n    \"0000:0000:0000:0000:0000:0000:0000:0001\",\r\n    \"0000:0000:0000:0000:0000:0000:0000:0002\"\r\n]",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{ip-caculationsdb-access}}/power-station/disconnect/list",
+									"host": [
+										"{{ip-caculationsdb-access}}"
+									],
+									"path": [
+										"power-station",
+										"disconnect",
+										"list"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "weather-api",
+					"item": [
+						{
+							"name": "Get weather api key",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{ip-caculationsdb-access}}/weather-api",
+									"host": [
+										"{{ip-caculationsdb-access}}"
+									],
+									"path": [
+										"weather-api"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get current weather",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{ip-caculationsdb-access}}/weather-api/current",
+									"host": [
+										"{{ip-caculationsdb-access}}"
+									],
+									"path": [
+										"weather-api",
+										"current"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get weather forecast",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{ip-caculationsdb-access}}/weather-api/forecast?date=2024-01-22",
+									"host": [
+										"{{ip-caculationsdb-access}}"
+									],
+									"path": [
+										"weather-api",
+										"forecast"
+									],
+									"query": [
+										{
+											"key": "date",
+											"value": "2024-01-22"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add new weather api key",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"weatherApiKey\": \"api-key\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{ip-caculationsdb-access}}/weather-api",
+									"host": [
+										"{{ip-caculationsdb-access}}"
+									],
+									"path": [
+										"weather-api"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "logic",
+			"item": [
+				{
+					"name": "power-station",
+					"item": [
+						{
+							"name": "Count power stations by state",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{ip-logic-access}}/power-station/count",
+									"host": [
+										"{{ip-logic-access}}"
+									],
+									"path": [
+										"power-station",
+										"count"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get power stations",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{ip-logic-access}}/power-station/count",
+									"host": [
+										"{{ip-logic-access}}"
+									],
+									"path": [
+										"power-station",
+										"count"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "auth",
+					"item": [
+						{
+							"name": "Login",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"admin\",\r\n    \"password\": \"password\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{ip-address-logic}}/api/login",
+									"host": [
+										"{{ip-address-logic}}"
+									],
+									"path": [
+										"api",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Refresh token",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICItbERyNlBfam5wS1hhZHpMdGRaaHVXbnVPVDhvc0duOUYyV1ZWMlB4YkFnIn0.eyJleHAiOjE3MDQ3NTgwMTIsImlhdCI6MTcwNDc1NzcxMiwianRpIjoiYTJjMDdkMzEtYjIzYi00OTUwLWI2MjAtNjhlN2M1MWNjY2UzIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo5MDAwL3JlYWxtcy9zem96ZS1yZWFsbSIsImF1ZCI6ImFjY291bnQiLCJzdWIiOiI2MTI0ZDJjMC0wNDNkLTRhYzYtYTc2Zi1hZDYwOTM2YWYxNjAiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJzem96ZS1jbGllbnQiLCJzZXNzaW9uX3N0YXRlIjoiNzZlMDM1ODgtMDk4Yy00Y2RmLThmMDItZGVjMmE0NTBiYWNkIiwiYWNyIjoiMSIsImFsbG93ZWQtb3JpZ2lucyI6WyIvKiJdLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsiZGVmYXVsdC1yb2xlcy1zem96ZS1yZWFsbSIsIm9mZmxpbmVfYWNjZXNzIiwiQURNSU4iLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoiZW1haWwgcHJvZmlsZSIsInNpZCI6Ijc2ZTAzNTg4LTA5OGMtNGNkZi04ZjAyLWRlYzJhNDUwYmFjZCIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJuYW1lIjoiQWRtaW5pc3RyYXRvciIsInByZWZlcnJlZF91c2VybmFtZSI6ImFkbWluIiwiZ2l2ZW5fbmFtZSI6IkFkbWluaXN0cmF0b3IiLCJmYW1pbHlfbmFtZSI6IiIsImVtYWlsIjoiYWRtaW5Ac3pvemUuY29tIn0.UrCXRZ7IAO-vJWJcG1muNwIqrNCniSIK7I8XvsSCXXLx5rf9WBkPzFlWbV36fmjXFPhQvudXwnGuEVp8DslcDLkjlO2mfMvWiH4S9QqHSqtC1TDEstJA7UyLWFyWhL43LYfcvCyXsWjYIqyTTNV-WtmWcbgKNFq4gb_TOqGX4Musvl6QRH-XKo2nhSHHXKmctNUZjEe9M4sLg2x7DrfuFjqOFT4q0N2xHM7-EfuHB9tw2E0p9VUHTMs5gBVJhlgJDWFdwHR9pi9yj8cBERL869yUu5SewvXcgKnpI1GZdnFmvOqRwaUGf1qol8N4NBRYNP-f22nfcEp0x4xopP6czw",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"admin\",\r\n    \"password\": \"password\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{ip-address-logic}}/api/login/refresh-token?token=eyJhbGciOiJIUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICI3MDM5YTU0OC00ZTJiLTQxNWQtOGYxZi1lNTM2ZGQxMzhhNTEifQ.eyJleHAiOjE3MDQ3NTk1MTIsImlhdCI6MTcwNDc1NzcxMiwianRpIjoiMzQ2YzFlMDEtYzYzYi00YmY0LThlMTgtYWE3OGY0YWNjNzg2IiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo5MDAwL3JlYWxtcy9zem96ZS1yZWFsbSIsImF1ZCI6Imh0dHA6Ly9sb2NhbGhvc3Q6OTAwMC9yZWFsbXMvc3pvemUtcmVhbG0iLCJzdWIiOiI2MTI0ZDJjMC0wNDNkLTRhYzYtYTc2Zi1hZDYwOTM2YWYxNjAiLCJ0eXAiOiJSZWZyZXNoIiwiYXpwIjoic3pvemUtY2xpZW50Iiwic2Vzc2lvbl9zdGF0ZSI6Ijc2ZTAzNTg4LTA5OGMtNGNkZi04ZjAyLWRlYzJhNDUwYmFjZCIsInNjb3BlIjoiZW1haWwgcHJvZmlsZSIsInNpZCI6Ijc2ZTAzNTg4LTA5OGMtNGNkZi04ZjAyLWRlYzJhNDUwYmFjZCJ9.Q_e_5xOJBGW19KY4OC0ZvS-YtbztZ7RWRwld2gv63oI",
+									"host": [
+										"{{ip-address-logic}}"
+									],
+									"path": [
+										"api",
+										"login",
+										"refresh-token"
+									],
+									"query": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICI3MDM5YTU0OC00ZTJiLTQxNWQtOGYxZi1lNTM2ZGQxMzhhNTEifQ.eyJleHAiOjE3MDQ3NTk1MTIsImlhdCI6MTcwNDc1NzcxMiwianRpIjoiMzQ2YzFlMDEtYzYzYi00YmY0LThlMTgtYWE3OGY0YWNjNzg2IiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo5MDAwL3JlYWxtcy9zem96ZS1yZWFsbSIsImF1ZCI6Imh0dHA6Ly9sb2NhbGhvc3Q6OTAwMC9yZWFsbXMvc3pvemUtcmVhbG0iLCJzdWIiOiI2MTI0ZDJjMC0wNDNkLTRhYzYtYTc2Zi1hZDYwOTM2YWYxNjAiLCJ0eXAiOiJSZWZyZXNoIiwiYXpwIjoic3pvemUtY2xpZW50Iiwic2Vzc2lvbl9zdGF0ZSI6Ijc2ZTAzNTg4LTA5OGMtNGNkZi04ZjAyLWRlYzJhNDUwYmFjZCIsInNjb3BlIjoiZW1haWwgcHJvZmlsZSIsInNpZCI6Ijc2ZTAzNTg4LTA5OGMtNGNkZi04ZjAyLWRlYzJhNDUwYmFjZCJ9.Q_e_5xOJBGW19KY4OC0ZvS-YtbztZ7RWRwld2gv63oI",
+											"description": "Refresh token"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "User info",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICItbERyNlBfam5wS1hhZHpMdGRaaHVXbnVPVDhvc0duOUYyV1ZWMlB4YkFnIn0.eyJleHAiOjE3MDQ2MzY4NDksImlhdCI6MTcwNDYzNjU0OSwianRpIjoiODMwZTg2ZTktZjVmYi00MzE3LWIzYTUtYzhkZTMxY2E0ZDJjIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo5MDAwL3JlYWxtcy9zem96ZS1yZWFsbSIsImF1ZCI6ImFjY291bnQiLCJzdWIiOiI2MTI0ZDJjMC0wNDNkLTRhYzYtYTc2Zi1hZDYwOTM2YWYxNjAiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJzem96ZS1jbGllbnQiLCJzZXNzaW9uX3N0YXRlIjoiMDllYjYxNTYtMzEyMC00NzliLTlhMGQtZWVmZDJhMjQ1YjA0IiwiYWNyIjoiMSIsImFsbG93ZWQtb3JpZ2lucyI6WyIvKiJdLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsiZGVmYXVsdC1yb2xlcy1zem96ZS1yZWFsbSIsIm9mZmxpbmVfYWNjZXNzIiwiQURNSU4iLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoiZW1haWwgcHJvZmlsZSIsInNpZCI6IjA5ZWI2MTU2LTMxMjAtNDc5Yi05YTBkLWVlZmQyYTI0NWIwNCIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJuYW1lIjoiQWRtaW5pc3RyYXRvciIsInByZWZlcnJlZF91c2VybmFtZSI6ImFkbWluIiwiZ2l2ZW5fbmFtZSI6IkFkbWluaXN0cmF0b3IiLCJmYW1pbHlfbmFtZSI6IiIsImVtYWlsIjoiYWRtaW5Ac3pvemUuY29tIn0.LAsH_3TZnwPvhAiSBU5syKOEx8tirEl0zV-Wqtioqqk7IwBTXUSem5BO-U88UqVptZZNA6Z7KOAwBQsZUBZtyGXYcI4HKJS_pWC0cfZmQqM0MmeSoIE8qMeBiLVKhcMiTdoPx_qpXhB0J2Mfo_e_3hvUseW-yPW0UcnK0NxtjGGILMZNtho1rJF-ai2voHFBSta2kAHf6hRYi729pzfMd4QSGNWzIek8vGMaNjj3_6yflHYv3a8gQV1L81CfW5hS9UwT6OYvqVW8iv8czt2Pp1MEO7DpKRJVvd2DjUigunGp1YeUG8hC6PGNa60gjvgGzDqn0wi9LT3AxAiOnasT_w",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{ip-address-logic}}/api/user/info/me",
+									"host": [
+										"{{ip-address-logic}}"
+									],
+									"path": [
+										"api",
+										"user",
+										"info",
+										"me"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Change OTP",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICItbERyNlBfam5wS1hhZHpMdGRaaHVXbnVPVDhvc0duOUYyV1ZWMlB4YkFnIn0.eyJleHAiOjE3MDUxMDE2MDUsImlhdCI6MTcwNTEwMTMwNSwianRpIjoiZmIxNjY5NDktNGQxMC00OWVmLWE2NzQtYjJhMzJjMWYxZjk0IiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo5MDAwL3JlYWxtcy9zem96ZS1yZWFsbSIsImF1ZCI6ImFjY291bnQiLCJzdWIiOiI2MTI0ZDJjMC0wNDNkLTRhYzYtYTc2Zi1hZDYwOTM2YWYxNjAiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJzem96ZS1jbGllbnQiLCJzZXNzaW9uX3N0YXRlIjoiM2U1OGJiN2UtNjZkOS00YmMzLTk1YzQtNDE3OTBkYzcxYWYzIiwiYWNyIjoiMSIsImFsbG93ZWQtb3JpZ2lucyI6WyIvKiJdLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsiZGVmYXVsdC1yb2xlcy1zem96ZS1yZWFsbSIsIm9mZmxpbmVfYWNjZXNzIiwiQURNSU4iLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoiZW1haWwgcHJvZmlsZSIsInNpZCI6IjNlNThiYjdlLTY2ZDktNGJjMy05NWM0LTQxNzkwZGM3MWFmMyIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJuYW1lIjoiQWRtaW5pc3RyYXRvciIsInByZWZlcnJlZF91c2VybmFtZSI6ImFkbWluIiwiZ2l2ZW5fbmFtZSI6IkFkbWluaXN0cmF0b3IiLCJmYW1pbHlfbmFtZSI6IiIsImVtYWlsIjoiYWRtaW5Ac3pvemUuY29tIn0.c6AGSwzYiGtHkyV0KP1_C2_bf7raUMb6Y3-ZPJdye05mW1cHhnvp6IKqJlnRqu2l-pmRckWJP7VxZF1-05UXjt2UQnBdmalUHLy_tIh3CL_docJct2U8QEUkDuYiPVJ0AURnJbiV_RuQbbLCjxL-ZjfxOTXIFMUr6HTo8eD9qA10V5fIIk2Tjc8qR_JF1_UbXDZjuKZDl_ZnZIoWd_Hq6K7QD5i0o56EB6buC2_PP0fUv5CbKZxQr04m2_-nARmrm8wo6aol2x5fFxZtLpWy8c1wodeGu1aygTpAcr3lI-LSWYLezTHX5qlUq1NVT_nbmGwbkyx791lEVBuEZQOflg",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{ip-address-logic}}/api/user/my-password?password=password2",
+									"host": [
+										"{{ip-address-logic}}"
+									],
+									"path": [
+										"api",
+										"user",
+										"my-password"
+									],
+									"query": [
+										{
+											"key": "password",
+											"value": "password2"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "users",
+					"item": [
+						{
+							"name": "Get all users",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICItbERyNlBfam5wS1hhZHpMdGRaaHVXbnVPVDhvc0duOUYyV1ZWMlB4YkFnIn0.eyJleHAiOjE3MDQ2Mzc2OTcsImlhdCI6MTcwNDYzNzM5NywianRpIjoiMzk2M2VmZDYtZjhjYy00YjJkLTgzMDItMzEwYzA2M2Y4YzgxIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo5MDAwL3JlYWxtcy9zem96ZS1yZWFsbSIsImF1ZCI6ImFjY291bnQiLCJzdWIiOiI2MTI0ZDJjMC0wNDNkLTRhYzYtYTc2Zi1hZDYwOTM2YWYxNjAiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJzem96ZS1jbGllbnQiLCJzZXNzaW9uX3N0YXRlIjoiMTJmNTk0ZDMtYTBiNi00N2E0LTk4MzYtOGM0YjM2MDQyODFkIiwiYWNyIjoiMSIsImFsbG93ZWQtb3JpZ2lucyI6WyIvKiJdLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsiZGVmYXVsdC1yb2xlcy1zem96ZS1yZWFsbSIsIm9mZmxpbmVfYWNjZXNzIiwiQURNSU4iLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoiZW1haWwgcHJvZmlsZSIsInNpZCI6IjEyZjU5NGQzLWEwYjYtNDdhNC05ODM2LThjNGIzNjA0MjgxZCIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJuYW1lIjoiQWRtaW5pc3RyYXRvciIsInByZWZlcnJlZF91c2VybmFtZSI6ImFkbWluIiwiZ2l2ZW5fbmFtZSI6IkFkbWluaXN0cmF0b3IiLCJmYW1pbHlfbmFtZSI6IiIsImVtYWlsIjoiYWRtaW5Ac3pvemUuY29tIn0.X5jaC0iWhtPhwR6uWOn0H5vJAxoy-Vm3vXGyBaqIueg2B-oJCtHDJQaU3FRIgq3IpS7i4EMn6DE1aa0K1qGEoTc9emhbSFh0piwxRFruz7hhV9pNPr5uBaIw-rsPSS2Hol2i5preTo2CCpxzpRqtqhwiSfQU9ryUJO_iP_dPBfRrWh3GYCeWPL50Z5Yj0oCOwawMxmr1xjOo5VJRWXQY51Dd3M4e_gh12nlX2rpEnkcy1lZ__BiKX274hxldDLtxkXLFj1rxC6O11kYhsM9KgLJ8YVBp-1BqWw852HpTxmuC1MoeUOopE6DqDz5lDSQ66MU2cW5aX2n3Yu4Nf_sXuw",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{ip-address-logic}}/api/user",
+									"host": [
+										"{{ip-address-logic}}"
+									],
+									"path": [
+										"api",
+										"user"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create new user",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICItbERyNlBfam5wS1hhZHpMdGRaaHVXbnVPVDhvc0duOUYyV1ZWMlB4YkFnIn0.eyJleHAiOjE3MDQ2Mzk3MjAsImlhdCI6MTcwNDYzOTQyMCwianRpIjoiNThiODEzZWUtOTA1Ny00NDRhLWI5ODEtOGQ1MzkzMWRiMjA3IiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo5MDAwL3JlYWxtcy9zem96ZS1yZWFsbSIsImF1ZCI6ImFjY291bnQiLCJzdWIiOiI2MTI0ZDJjMC0wNDNkLTRhYzYtYTc2Zi1hZDYwOTM2YWYxNjAiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJzem96ZS1jbGllbnQiLCJzZXNzaW9uX3N0YXRlIjoiNWNiNzNjNGItZTNjYi00NThmLWJmY2ItYzdkOThhMDMxOWI4IiwiYWNyIjoiMSIsImFsbG93ZWQtb3JpZ2lucyI6WyIvKiJdLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsiZGVmYXVsdC1yb2xlcy1zem96ZS1yZWFsbSIsIm9mZmxpbmVfYWNjZXNzIiwiQURNSU4iLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoiZW1haWwgcHJvZmlsZSIsInNpZCI6IjVjYjczYzRiLWUzY2ItNDU4Zi1iZmNiLWM3ZDk4YTAzMTliOCIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJuYW1lIjoiQWRtaW5pc3RyYXRvciIsInByZWZlcnJlZF91c2VybmFtZSI6ImFkbWluIiwiZ2l2ZW5fbmFtZSI6IkFkbWluaXN0cmF0b3IiLCJmYW1pbHlfbmFtZSI6IiIsImVtYWlsIjoiYWRtaW5Ac3pvemUuY29tIn0.V4z6cftYcRs9H_HMAeByewFtA1KB0ICiLpJJcss6RQcTXrS7QkMBPhwCv_rt5VH2-uJ5rF6zSNndvKVEgvqe7aUibfB3pG0qx8rGpG02p1QBZ18VLEzjfTvsjNPz-i9uwwiLAlSuwBIuQU-BQof12xLrl2jGHaJlbM8hInUkmxif1-Bh2eNNBCh0R49Pk_kitUzr9vohIeiszUNJ2Iay-83OLaJsFQ2oDPdMdLl0fT3IaqttxRUqVjSY618InJKe0nNlXgaQxZYVkjvbOlSmDTgRi23DEc4QbihwT71ac0HzJvUuNCbgvM3etcTApoxnmY9ClJeJ4GWtPYNSvJq3vw",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"user2\",\r\n    \"role\": \"USER\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{ip-address-logic}}/api/user",
+									"host": [
+										"{{ip-address-logic}}"
+									],
+									"path": [
+										"api",
+										"user"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update user",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"user\",\r\n    \"role\": \"ADMIN\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{ip-address-logic}}/api/user/update?userId=id",
+									"host": [
+										"{{ip-address-logic}}"
+									],
+									"path": [
+										"api",
+										"user",
+										"update"
+									],
+									"query": [
+										{
+											"key": "userId",
+											"value": "id"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "prediction",
+					"item": [
+						{
+							"name": "Predict power production",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8084/api/power-production-prediction?date=2024-01-23&powerStationsScope=ALL_POWER_STATIONS",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8084",
+									"path": [
+										"api",
+										"power-production-prediction"
+									],
+									"query": [
+										{
+											"key": "date",
+											"value": "2024-01-23"
+										},
+										{
+											"key": "powerStationsScope",
+											"value": "ALL_POWER_STATIONS"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "aggregated-power-production Copy",
+					"item": [
+						{
+							"name": "Get aggregated power production",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICItbERyNlBfam5wS1hhZHpMdGRaaHVXbnVPVDhvc0duOUYyV1ZWMlB4YkFnIn0.eyJleHAiOjE3MDY1NDIwMjMsImlhdCI6MTcwNjU0MTcyMywianRpIjoiNGZmOWY1NTAtNzdmYy00MjRjLWJjY2UtMDE5MWNlZjUwYzI1IiwiaXNzIjoiaHR0cDovL2tleWNsb2FrOjkwMDAvcmVhbG1zL3N6b3plLXJlYWxtIiwiYXVkIjoiYWNjb3VudCIsInN1YiI6IjYxMjRkMmMwLTA0M2QtNGFjNi1hNzZmLWFkNjA5MzZhZjE2MCIsInR5cCI6IkJlYXJlciIsImF6cCI6InN6b3plLWNsaWVudCIsInNlc3Npb25fc3RhdGUiOiJjN2ZiZjlkOC1iNjFmLTQ2MWUtYTI0My1mMzllN2NkM2MwZDMiLCJhY3IiOiIxIiwiYWxsb3dlZC1vcmlnaW5zIjpbIi8qIl0sInJlYWxtX2FjY2VzcyI6eyJyb2xlcyI6WyJkZWZhdWx0LXJvbGVzLXN6b3plLXJlYWxtIiwib2ZmbGluZV9hY2Nlc3MiLCJBRE1JTiIsInVtYV9hdXRob3JpemF0aW9uIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJlbWFpbCBwcm9maWxlIiwic2lkIjoiYzdmYmY5ZDgtYjYxZi00NjFlLWEyNDMtZjM5ZTdjZDNjMGQzIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsIm5hbWUiOiJBZG1pbmlzdHJhdG9yIiwicHJlZmVycmVkX3VzZXJuYW1lIjoiYWRtaW4iLCJnaXZlbl9uYW1lIjoiQWRtaW5pc3RyYXRvciIsImZhbWlseV9uYW1lIjoiIiwiZW1haWwiOiJhZG1pbkBzem96ZS5jb20ifQ.We1RdPhnSo8yB9dV-SqBxXzuq-spEjYs4Ry2d1PnjnQkXd9mDQYCv4Pvu11lZH7taL2BH2m6kisxeQDwRr8fmDeDOgjjEwiDgSU3zEkwizwBR2qsszAKzKd8dWYfVNq6GpG0vqSv5d_7EpO4jMRyk7aunxv3U6KCb_wkCyIDzPqJefIaB8L_ScqPFNwf5KXtEabCxIg3-eeds6TlzCzOOzJ5nxkCgzhLS4d7kHG2V9fWBAFptOZdR8uWrw3Gn18JdWgZQkLh3vee_fDDlrbdwqZ403Tn2_gd_wLGSGCavxIKm-PpibNNkQY4FHyTLZqlEW8j0M3abskMJfCz1qD7Jw",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{ip-address-logic}}/api/aggregated-power-production?aggregationPeriodType=MINUTE&duration=60",
+									"host": [
+										"{{ip-address-logic}}"
+									],
+									"path": [
+										"api",
+										"aggregated-power-production"
+									],
+									"query": [
+										{
+											"key": "aggregationPeriodType",
+											"value": "MINUTE"
+										},
+										{
+											"key": "duration",
+											"value": "60",
+											"description": "Liczba ostatnich minut/godzin/dni"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "power-production Copy",
+					"item": [
+						{
+							"name": "Get power production for ipv6",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICItbERyNlBfam5wS1hhZHpMdGRaaHVXbnVPVDhvc0duOUYyV1ZWMlB4YkFnIn0.eyJleHAiOjE3MDY1NDIwMjMsImlhdCI6MTcwNjU0MTcyMywianRpIjoiNGZmOWY1NTAtNzdmYy00MjRjLWJjY2UtMDE5MWNlZjUwYzI1IiwiaXNzIjoiaHR0cDovL2tleWNsb2FrOjkwMDAvcmVhbG1zL3N6b3plLXJlYWxtIiwiYXVkIjoiYWNjb3VudCIsInN1YiI6IjYxMjRkMmMwLTA0M2QtNGFjNi1hNzZmLWFkNjA5MzZhZjE2MCIsInR5cCI6IkJlYXJlciIsImF6cCI6InN6b3plLWNsaWVudCIsInNlc3Npb25fc3RhdGUiOiJjN2ZiZjlkOC1iNjFmLTQ2MWUtYTI0My1mMzllN2NkM2MwZDMiLCJhY3IiOiIxIiwiYWxsb3dlZC1vcmlnaW5zIjpbIi8qIl0sInJlYWxtX2FjY2VzcyI6eyJyb2xlcyI6WyJkZWZhdWx0LXJvbGVzLXN6b3plLXJlYWxtIiwib2ZmbGluZV9hY2Nlc3MiLCJBRE1JTiIsInVtYV9hdXRob3JpemF0aW9uIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJlbWFpbCBwcm9maWxlIiwic2lkIjoiYzdmYmY5ZDgtYjYxZi00NjFlLWEyNDMtZjM5ZTdjZDNjMGQzIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsIm5hbWUiOiJBZG1pbmlzdHJhdG9yIiwicHJlZmVycmVkX3VzZXJuYW1lIjoiYWRtaW4iLCJnaXZlbl9uYW1lIjoiQWRtaW5pc3RyYXRvciIsImZhbWlseV9uYW1lIjoiIiwiZW1haWwiOiJhZG1pbkBzem96ZS5jb20ifQ.We1RdPhnSo8yB9dV-SqBxXzuq-spEjYs4Ry2d1PnjnQkXd9mDQYCv4Pvu11lZH7taL2BH2m6kisxeQDwRr8fmDeDOgjjEwiDgSU3zEkwizwBR2qsszAKzKd8dWYfVNq6GpG0vqSv5d_7EpO4jMRyk7aunxv3U6KCb_wkCyIDzPqJefIaB8L_ScqPFNwf5KXtEabCxIg3-eeds6TlzCzOOzJ5nxkCgzhLS4d7kHG2V9fWBAFptOZdR8uWrw3Gn18JdWgZQkLh3vee_fDDlrbdwqZ403Tn2_gd_wLGSGCavxIKm-PpibNNkQY4FHyTLZqlEW8j0M3abskMJfCz1qD7Jw",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{ip-address-logic}}/api/power-production?ipv6=0000:0000:0000:0000:0000:0000:0000:038d&aggregationPeriodType=MINUTE&duration=60",
+									"host": [
+										"{{ip-address-logic}}"
+									],
+									"path": [
+										"api",
+										"power-production"
+									],
+									"query": [
+										{
+											"key": "ipv6",
+											"value": "0000:0000:0000:0000:0000:0000:0000:038d"
+										},
+										{
+											"key": "aggregationPeriodType",
+											"value": "MINUTE"
+										},
+										{
+											"key": "duration",
+											"value": "60"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "test",
+					"protocolProfileBehavior": {
+						"followRedirects": true,
+						"strictSSL": false
+					},
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{one-time-password}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "user",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{ip-address-logic}}/api/",
+							"host": [
+								"{{ip-address-logic}}"
+							],
+							"path": [
+								"api",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "mediative-module",
+			"item": [
+				{
+					"name": "mediative-api",
+					"item": [
+						{
+							"name": "Connect to system",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{ip-address-mediative-module}}/api/connect?ipv6Address=0000:0000:0000:0000:0000:0000:0000:0001",
+									"host": [
+										"{{ip-address-mediative-module}}"
+									],
+									"path": [
+										"api",
+										"connect"
+									],
+									"query": [
+										{
+											"key": "ipv6Address",
+											"value": "0000:0000:0000:0000:0000:0000:0000:0001"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Disconnect from system",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{ip-address-mediative-module}}/api/disconnect?ipv6Address=0000:0000:0000:0000:0000:0000:0000:0001",
+									"host": [
+										"{{ip-address-mediative-module}}"
+									],
+									"path": [
+										"api",
+										"disconnect"
+									],
+									"query": [
+										{
+											"key": "ipv6Address",
+											"value": "0000:0000:0000:0000:0000:0000:0000:0001"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get info",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{ip-address-mediative-module}}/api/info?ipv6Address=0000:0000:0000:0000:0000:0000:0000:0001",
+									"host": [
+										"{{ip-address-mediative-module}}"
+									],
+									"path": [
+										"api",
+										"info"
+									],
+									"query": [
+										{
+											"key": "ipv6Address",
+											"value": "0000:0000:0000:0000:0000:0000:0000:0001"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Start power station",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{ip-address-mediative-module}}/api/start?ipv6Address=0000:0000:0000:0000:0000:0000:0000:0003",
+									"host": [
+										"{{ip-address-mediative-module}}"
+									],
+									"path": [
+										"api",
+										"start"
+									],
+									"query": [
+										{
+											"key": "ipv6Address",
+											"value": "0000:0000:0000:0000:0000:0000:0000:0003"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Stop power station",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{ip-address-mediative-module}}/api/stop?ipv6Address=0000:0000:0000:0000:0000:0000:0000:0003",
+									"host": [
+										"{{ip-address-mediative-module}}"
+									],
+									"path": [
+										"api",
+										"stop"
+									],
+									"query": [
+										{
+											"key": "ipv6Address",
+											"value": "0000:0000:0000:0000:0000:0000:0000:0003"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Stop power station manual",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{ip-address-mediative-module}}/api/stop?ipv6Address=0000:0000:0000:0000:0000:0000:0000:0003",
+									"host": [
+										"{{ip-address-mediative-module}}"
+									],
+									"path": [
+										"api",
+										"stop"
+									],
+									"query": [
+										{
+											"key": "ipv6Address",
+											"value": "0000:0000:0000:0000:0000:0000:0000:0003"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "prediction-module",
+			"item": [
+				{
+					"name": "Predict power production",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"predictionDate\": \"2024-01-23\",\r\n    \"powerStationsScope\": \"ALL_POWER_STATIONS\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ip-prediction-module}}/api/predict",
+							"host": [
+								"{{ip-prediction-module}}"
+							],
+							"path": [
+								"api",
+								"predict"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Predict power production Copy",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"predictionDate\": \"\",\r\n    \"predistionStates\": [\r\n        \"WORKING\",\r\n        \"STOPPERD\",\r\n        \"DAMAGED\",\r\n        \"MAINTENANCE\"\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ip-prediction-module}}/api/predict",
+							"host": [
+								"{{ip-prediction-module}}"
+							],
+							"path": [
+								"api",
+								"predict"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Predict power production Copy",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"powerProductions\": [\r\n        {\r\n            \"id\": 1253,\r\n            \"ipv6Addrress\": \"0000:0000:0000:0000:0000:0000:0000:0009\",\r\n            \"state\": \"WORKING\",\r\n            \"producedPower\": 0,\r\n            \"timestamp\": \"2024-01-22T00:00Z[UTC]\"\r\n        }\r\n        \r\n    ],\r\n    \"powerStationFilter\": {\r\n        \"ipv6Patterns\": null,\r\n        \"statePatterns\": [\"WORKING\", \"STOPPED\"],\r\n        \"typePatterns\": null\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/real-time-calculations/api/optimize_production",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"real-time-calculations",
+								"api",
+								"optimize_production"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "real-time-calculations",
+			"item": [
+				{
+					"name": "Set energy threshold",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{ip-address-real-time-calculations}}/api?threshold=10000.0",
+							"host": [
+								"{{ip-address-real-time-calculations}}"
+							],
+							"path": [
+								"api"
+							],
+							"query": [
+								{
+									"key": "threshold",
+									"value": "10000.0"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get energy threshold",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{ip-address-real-time-calculations}}/api/threshold",
+							"host": [
+								"{{ip-address-real-time-calculations}}"
+							],
+							"path": [
+								"api",
+								"threshold"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Optimize production",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"powerProductions\": [\r\n        \r\n    ],\r\n    \"powerStationFilter\": {\r\n        \"ipv6Patterns\": [],\r\n        \"statePatterns\": [],\r\n        \"typePatterns\": []\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ip-address-real-time-calculations}}/api/optimize_production",
+							"host": [
+								"{{ip-address-real-time-calculations}}"
+							],
+							"path": [
+								"api",
+								"optimize_production"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "simulation-module",
+			"item": [
+				{
+					"name": "management",
+					"item": [
+						{
+							"name": "wind-turbine",
+							"item": [
+								{
+									"name": "Connect with new wind turbine",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"id\" : -1,\r\n    \"ipv6\": \"0000:0000:0000:0000:0000:0000:0000:0001\",\r\n    \"state\": \"WORKING\",\r\n    \"creationTime\": \"1970-01-01T00:00:00Z\",\r\n    \"bladeLength\": 25,\r\n    \"minimalEffectivityCoefficient\": 5,\r\n    \"maximalEffectivityCoefficient\": 15,\r\n    \"powerCoefficient\": 30,\r\n    \"isConnected\": false\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{ip-address-simulation-module}}/wind-turbine",
+											"host": [
+												"{{ip-address-simulation-module}}"
+											],
+											"path": [
+												"wind-turbine"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get wind turbine by id",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{ip-address-simulation-module}}/wind-turbine/1",
+											"host": [
+												"{{ip-address-simulation-module}}"
+											],
+											"path": [
+												"wind-turbine",
+												"1"
+											],
+											"query": [
+												{
+													"key": "",
+													"value": null,
+													"disabled": true
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get all wind turbines",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{ip-address-simulation-module}}/wind-turbine",
+											"host": [
+												"{{ip-address-simulation-module}}"
+											],
+											"path": [
+												"wind-turbine"
+											],
+											"query": [
+												{
+													"key": "",
+													"value": null,
+													"disabled": true
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "solar-panel",
+							"item": [
+								{
+									"name": "Create new solar panel",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"id\" : -1,\r\n    \"ipv6\": \"0000:0000:0000:0000:0000:0000:0000:01f5\",\r\n    \"state\": \"STOPPED\",\r\n    \"creationTime\": \"1970-01-01T00:00:00Z\",\r\n    \"maxPower\": 100,\r\n    \"optimalTemperature\": 25,\r\n    \"insolationFactorWeights\": {\r\n        \"zenithFactorWeight\": 2,\r\n        \"cloudFactorWeight\": 1\r\n    },\r\n    \"powerCoefficientFactor\": {\r\n        \"minValue\": 0.2,\r\n        \"maxValue\": 0.9,\r\n        \"meanValue\": 0.75\r\n    },\r\n    \"isConnected\": false\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{ip-address-simulation-module}}/solar-panel",
+											"host": [
+												"{{ip-address-simulation-module}}"
+											],
+											"path": [
+												"solar-panel"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get solar panel by id",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{ip-address-simulation-module}}/solar-panel/501",
+											"host": [
+												"{{ip-address-simulation-module}}"
+											],
+											"path": [
+												"solar-panel",
+												"501"
+											],
+											"query": [
+												{
+													"key": "",
+													"value": null,
+													"disabled": true
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get all solar panels",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{ip-address-simulation-module}}/solar-panel",
+											"host": [
+												"{{ip-address-simulation-module}}"
+											],
+											"path": [
+												"solar-panel"
+											],
+											"query": [
+												{
+													"key": "",
+													"value": null,
+													"disabled": true
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "power-station",
+							"item": [
+								{
+									"name": "Get power station by id",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{ip-address-simulation-module}}/power-station/1",
+											"host": [
+												"{{ip-address-simulation-module}}"
+											],
+											"path": [
+												"power-station",
+												"1"
+											],
+											"query": [
+												{
+													"key": "",
+													"value": null,
+													"disabled": true
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get all power stations",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{ip-address-simulation-module}}/power-station",
+											"host": [
+												"{{ip-address-simulation-module}}"
+											],
+											"path": [
+												"power-station"
+											],
+											"query": [
+												{
+													"key": "",
+													"value": null,
+													"disabled": true
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Start maintenance",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{ip-address-simulation-module}}/power-station/maintenance?id=1&durationMs=10000",
+											"host": [
+												"{{ip-address-simulation-module}}"
+											],
+											"path": [
+												"power-station",
+												"maintenance"
+											],
+											"query": [
+												{
+													"key": "id",
+													"value": "1"
+												},
+												{
+													"key": "durationMs",
+													"value": "10000",
+													"description": "optional"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Make damage",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{ip-address-simulation-module}}/power-station/damage?id=1",
+											"host": [
+												"{{ip-address-simulation-module}}"
+											],
+											"path": [
+												"power-station",
+												"damage"
+											],
+											"query": [
+												{
+													"key": "id",
+													"value": "1"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "system-api",
+					"item": [
+						{
+							"name": "Connect to system",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{ip-address-simulation-module}}/api/connect?ipv6Address=0000:0000:0000:0000:0000:0000:0000:0001",
+									"host": [
+										"{{ip-address-simulation-module}}"
+									],
+									"path": [
+										"api",
+										"connect"
+									],
+									"query": [
+										{
+											"key": "ipv6Address",
+											"value": "0000:0000:0000:0000:0000:0000:0000:0001"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Disconnect from system",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{ip-address-simulation-module}}/api/disconnect?ipv6Address=0000:0000:0000:0000:0000:0000:0000:0001",
+									"host": [
+										"{{ip-address-simulation-module}}"
+									],
+									"path": [
+										"api",
+										"disconnect"
+									],
+									"query": [
+										{
+											"key": "ipv6Address",
+											"value": "0000:0000:0000:0000:0000:0000:0000:0001"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get info",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{ip-address-simulation-module}}/api/info?ipv6Address=0000:0000:0000:0000:0000:0000:0000:0001",
+									"host": [
+										"{{ip-address-simulation-module}}"
+									],
+									"path": [
+										"api",
+										"info"
+									],
+									"query": [
+										{
+											"key": "ipv6Address",
+											"value": "0000:0000:0000:0000:0000:0000:0000:0001"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Start power station",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{ip-address-simulation-module}}/api/start?ipv6Address=0000:0000:0000:0000:0000:0000:0000:0001",
+									"host": [
+										"{{ip-address-simulation-module}}"
+									],
+									"path": [
+										"api",
+										"start"
+									],
+									"query": [
+										{
+											"key": "ipv6Address",
+											"value": "0000:0000:0000:0000:0000:0000:0000:0001"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Stop power station",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{ip-address-simulation-module}}/api/stop?ipv6Address=0000:0000:0000:0000:0000:0000:0000:0001",
+									"host": [
+										"{{ip-address-simulation-module}}"
+									],
+									"path": [
+										"api",
+										"stop"
+									],
+									"query": [
+										{
+											"key": "ipv6Address",
+											"value": "0000:0000:0000:0000:0000:0000:0000:0001"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}
